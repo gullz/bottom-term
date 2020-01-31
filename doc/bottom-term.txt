@@ -1,0 +1,1 @@
+This is a sample text help for creating vim bottom terminal window, solely for learning. 
