@@ -8,9 +8,9 @@ nnoremap <F2> :SHTerm
 
 function! ShowHideTerminal()
 	if s:toggleOn
-		execute "runbotterm"
+		execute "RunBotTerm"
 	else
-		execute "closebotterm"
+		execute "CloseBotTerm"
 	endif
 endfunction
 
