@@ -1,9 +1,10 @@
 let s:toggleOn = 0
-command! runbotterm call RunBottomTerminal()
-command! closebotterm call CloseBottomTerminal()
-command! shterm call ShowHideTerminal()
 
-nnoremap <F2> :shterm
+command! RunBotTerm call RunBottomTerminal()
+command! CloseBotTerm call CloseBottomTerminal()
+command! SHTerm call ShowHideTerminal()
+
+nnoremap <F2> :SHTerm
 
 function! ShowHideTerminal()
 	if s:toggleOn
