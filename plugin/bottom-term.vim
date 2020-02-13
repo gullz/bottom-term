@@ -4,7 +4,7 @@ command! RunBotTerm call RunBottomTerminal()
 command! CloseBotTerm call CloseBottomTerminal()
 command! SHTerm call ShowHideTerminal()
 
-nnoremap <F2> :SHTerm
+nnoremap <F2> :SHTerm<CR>
 
 function! ShowHideTerminal()
 	if s:toggleOn
