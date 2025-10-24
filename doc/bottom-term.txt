@@ -1,1 +1,74 @@
-This is a sample text help for creating vim bottom terminal window, solely for learning. 
+*bottom-term.txt*   Toggle a bottom terminal window in Vim
+
+Author:  pulbhaba
+License: Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                    *bottom-term*
+
+This plugin provides a simple way to toggle a terminal window at the bottom
+of your Vim session. The terminal can be opened and closed with a single
+command or keybinding.
+
+COMMANDS                                        *bottom-term-commands*
+
+                                                *:RunBottomTerm*
+:RunBottomTerm          Opens a terminal window at the bottom of the screen,
+                        resized to 15 lines. If a terminal is already open,
+                        this command has no effect.
+
+                                                *:CloseBottomTerm*
+:CloseBottomTerm        Closes the bottom terminal window. The terminal
+                        buffer is also removed from the buffer list.
+
+                                                *:ToggleBottomTerm*
+:ToggleBottomTerm       Toggles the terminal window on/off. This is the
+                        recommended way to interact with the plugin.
+
+MAPPINGS                                        *bottom-term-mappings*
+
+                                                *bottom-term-<F2>*
+<F2>                    Toggle the terminal window on/off.
+                        Maps to :ToggleBottomTerm
+
+                        You can create your own mapping:
+                        >
+                            nnoremap <leader>t :ToggleBottomTerm<CR>
+                        <
+
+CONFIGURATION                                   *bottom-term-configuration*
+
+                                                *g:bottom_term_auto_open*
+g:bottom_term_auto_open
+
+    Set this to 1 in your vimrc to automatically open the bottom terminal
+    when Vim starts:
+    >
+        let g:bottom_term_auto_open = 1
+    <
+    Default: 0 (disabled)
+
+FEATURES                                        *bottom-term-features*
+
+- Single terminal instance: Only one terminal exists at any time. Pressing
+  F2 multiple times won't create duplicates
+- Session persistence: Closing the terminal keeps your shell session alive.
+  Reopening with F2 returns to the same session
+- Smart terminal detection: Reuses existing terminal buffer
+- Automatic state synchronization: Handles manual terminal closure
+- Error handling: Gracefully handles failures
+- No confirmation prompts: Terminal closes immediately without asking
+  for confirmation when toggling with F2 or :ToggleBottomTerm
+- Auto-cleanup on exit: Terminal is automatically closed on :qa or :q
+  without blocking, so you can exit Vim smoothly
+
+TROUBLESHOOTING                                 *bottom-term-troubleshooting*
+
+If the terminal doesn't appear:
+- Check that your Vim version supports |terminal| (Vim 8.1+ or Neovim)
+- Try running `:term` manually to see if terminals work
+
+If multiple terminals appear:
+- This shouldn't happen with the improved code, but you can manually close
+  extra terminals with |:bwipeout|
+
+vim:tw=78:et:ft=help:norl:
